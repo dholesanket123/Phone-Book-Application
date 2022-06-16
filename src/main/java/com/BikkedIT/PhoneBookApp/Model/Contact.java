@@ -11,9 +11,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-
-
-
 @Entity  
 @Table(name="CONTACT_DETLS")
 public class Contact {
@@ -26,7 +23,7 @@ public class Contact {
 	@Column(name="CONTACT_EMAIL")
 	private String email;
 	@Column(name="ACTIVE_SWATICH")
-	private Character activeSw;
+	private boolean activeSw;
 	@Column(name="CREATE_DATE",updatable = false)
 	@CreationTimestamp
 	private LocalDate createDate;
@@ -50,10 +47,10 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Character getActiveSw() {
+	public boolean getActiveSw() {
 		return activeSw;
 	}
-	public void setActiveSw(Character activeSw) {
+	public void setActiveSw(boolean activeSw) {
 		this.activeSw = activeSw;
 	}
 	public LocalDate getCreateDate() {
@@ -68,7 +65,7 @@ public class Contact {
 	public void setUpdatedDate(LocalDate updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-	public Contact(Integer contactId, String contactName, String email, Character activeSw, LocalDate createDate,
+	public Contact(Integer contactId, String contactName, String email, boolean activeSw, LocalDate createDate,
 			LocalDate updatedDate) {
 		super();
 		this.contactId = contactId;
@@ -82,6 +79,10 @@ public class Contact {
 	public String toString() {
 		return "Contact [contactId=" + contactId + ", contactName=" + contactName + ", email=" + email + ", activeSw="
 				+ activeSw + ", createDate=" + createDate + ", updatedDate=" + updatedDate + "]";
+	}
+	public Contact() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 

@@ -3,6 +3,7 @@ package com.BikkedIT.PhoneBookApp.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ import com.BikkedIT.PhoneBookApp.Service.ContactServiceI;
 public class ContactController {
 	@Autowired
 	private ContactServiceI contactServiceI;
-
+@PostMapping(value="/saveData",produces = "Application/json")
  public ResponseEntity<String> saveContact(@RequestBody Contact contact){
 	 boolean saveContact = contactServiceI.saveContact(contact);
 	 if(saveContact !=false) {
