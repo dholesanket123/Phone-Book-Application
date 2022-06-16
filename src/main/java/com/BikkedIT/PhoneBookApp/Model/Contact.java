@@ -9,10 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
 
 
 
-@Entity
+
+@Entity  
 @Table(name="CONTACT_DETLS")
 public class Contact {
 	@Id
@@ -25,9 +27,10 @@ public class Contact {
 	private String email;
 	@Column(name="ACTIVE_SWATICH")
 	private Character activeSw;
-	@Column(name="CREATE_DATE")
+	@Column(name="CREATE_DATE",updatable = false)
+	@CreationTimestamp
 	private LocalDate createDate;
-	@Column(name="UPDATE_DATE")
+	@Column(name="UPDATE_DATE",insertable = false)
 	private LocalDate updatedDate;
 	public Integer getContactId() {
 		return contactId;
