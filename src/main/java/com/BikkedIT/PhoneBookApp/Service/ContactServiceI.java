@@ -7,7 +7,8 @@ import com.BikkedIT.PhoneBookApp.Model.Contact;
 public interface ContactServiceI {
 	boolean saveContact(Contact contact);
 	
-	List<Contact> getAllData();
+public 	List<Contact> getAllData();
+public 	Contact getById(Integer contactId);
 	
 
 }

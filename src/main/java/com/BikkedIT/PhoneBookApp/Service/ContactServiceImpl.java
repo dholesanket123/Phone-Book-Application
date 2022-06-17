@@ -37,6 +37,11 @@ public class ContactServiceImpl  implements ContactServiceI{
 		
 		
 	}
+	@Override
+	public Contact getById(Integer contactId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
