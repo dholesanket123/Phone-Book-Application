@@ -46,7 +46,6 @@ public ResponseEntity<List<Contact>> getAll(){
 		throw new DataNotFoundExcepation("Data Not found Excepation");
 	}	
 }
-
 @GetMapping("/edit{contactId}")
 public ResponseEntity< Contact> getByID(@PathVariable Integer contactId ){
 	Contact contact = contactServiceI.getById(contactId);
@@ -56,11 +55,8 @@ public ResponseEntity< Contact> getByID(@PathVariable Integer contactId ){
 	else {
 		String msg ="Record not Found ";
 		
-		return new ResponseEntity(msg,HttpStatus.BAD_REQUEST);
-		
-	}
-	
-	
+		return new ResponseEntity(msg,HttpStatus.BAD_REQUEST);	
+	}	
 }
 
 

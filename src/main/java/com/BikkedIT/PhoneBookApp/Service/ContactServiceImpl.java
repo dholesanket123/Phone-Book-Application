@@ -35,14 +35,12 @@ public class ContactServiceImpl  implements ContactServiceI{
 		else {
 			return null;	
 		}
-		
-		
 	}
 	@Override
 	public Contact getById(Integer contactId) {
 		Optional<Contact> findById = contactRepository.findById(contactId);
 		Contact contact = findById.get();
-		if(findById !=null) {
+		if(findById.isPresent()) {
 		return contact;
 		}
 		else {
@@ -50,7 +48,4 @@ public class ContactServiceImpl  implements ContactServiceI{
 		}
 		
 	}
-	
-	
-
 }
