@@ -48,4 +48,10 @@ public class ContactServiceImpl  implements ContactServiceI{
 		}
 		
 	}
+	@Override
+	public void deleteAllData() {
+
+		contactRepository.deleteAll();
+		
+	}
 }

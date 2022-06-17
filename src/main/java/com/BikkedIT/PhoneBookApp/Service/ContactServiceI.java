@@ -9,6 +9,7 @@ public interface ContactServiceI {
 	
 public 	List<Contact> getAllData();
 public 	Contact getById(Integer contactId);
+public void deleteAllData();
 	
 
 }
