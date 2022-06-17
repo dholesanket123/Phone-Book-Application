@@ -47,6 +47,22 @@ public ResponseEntity<List<Contact>> getAll(){
 	}	
 }
 
+@GetMapping("/edit{contactId}")
+public ResponseEntity< Contact> getByID(@PathVariable Integer contactId ){
+	Contact contact = contactServiceI.getById(contactId);
+	if(contact !=null) {
+		return new ResponseEntity<Contact>(contact, HttpStatus.OK);
+	}
+	else {
+		String msg ="Record not Found ";
+		
+		return new ResponseEntity(msg,HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	
+}
+
 
 }
 
