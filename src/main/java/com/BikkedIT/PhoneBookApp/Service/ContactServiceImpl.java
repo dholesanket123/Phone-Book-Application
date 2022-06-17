@@ -1,6 +1,7 @@
 package com.BikkedIT.PhoneBookApp.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,8 +40,15 @@ public class ContactServiceImpl  implements ContactServiceI{
 	}
 	@Override
 	public Contact getById(Integer contactId) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Contact> findById = contactRepository.findById(contactId);
+		Contact contact = findById.get();
+		if(findById !=null) {
+		return contact;
+		}
+		else {
+			return null;	
+		}
+		
 	}
 	
 	
