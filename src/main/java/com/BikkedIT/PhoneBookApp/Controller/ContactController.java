@@ -59,6 +59,14 @@ public ResponseEntity< Contact> getByID(@PathVariable Integer contactId ){
 	}	
 }
 
+@GetMapping("/deleteAll")
+public ResponseEntity<String> deleteAllData(){
+	contactServiceI.deleteAllData();
+	String msg="Record Delete successfully";
+	return new ResponseEntity<String>(msg,HttpStatus.OK);
+	
+}
+
 
 }
 
