@@ -1,5 +1,7 @@
 package com.BikkedIT.PhoneBookApp.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,18 @@ public class ContactServiceImpl  implements ContactServiceI{
 		else {
 			return false;
 		}
-
+	}
+	@Override
+	public List<Contact> getAllData() {
+		List<Contact> allContact = contactRepository.findAll();
+		
+		if(allContact !=null) {
+			return allContact;
+		}
+		else {
+			return null;	
+		}
+		
 		
 	}
 	
