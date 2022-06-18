@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -78,6 +79,21 @@ public ResponseEntity<String> updateRecord(Contact contact){
 		String msg1="Given id not match pl insert correct id ";
 		return new ResponseEntity<String>(msg1, HttpStatus.BAD_GATEWAY);
 	}
+	
+}
+@DeleteMapping("/deleteRecordById{contactId}")
+public ResponseEntity<String> deleteById(@PathVariable Integer contactId){
+	
+	boolean deleteById = contactServiceI.deleteById(contactId);
+	if(deleteById==true){
+		String msg="Record delete successfully";
+		return new ResponseEntity<String>(msg, HttpStatus.OK);
+	}
+	else {
+		String msg="Given Id record not present Pl check Id";
+		return new ResponseEntity<String> (msg, HttpStatus.BAD_GATEWAY)) ;
+	}
+	
 	
 }
 }
