@@ -64,4 +64,10 @@ public class ContactServiceImpl implements ContactServiceI {
 		}
 	}
 
+	@Override
+	public boolean deleteById(Integer contactId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
