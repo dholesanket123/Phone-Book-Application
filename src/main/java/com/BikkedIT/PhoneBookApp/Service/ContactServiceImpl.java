@@ -9,49 +9,59 @@ import org.springframework.stereotype.Service;
 import com.BikkedIT.PhoneBookApp.Model.Contact;
 import com.BikkedIT.PhoneBookApp.Repository.ContactRepository;
 
-
 @Service
-public class ContactServiceImpl  implements ContactServiceI{
+public class ContactServiceImpl implements ContactServiceI {
 	@Autowired
 	private ContactRepository contactRepository;
-	
+
 	@Override
 	public boolean saveContact(Contact contact) {
 		Contact save = contactRepository.save(contact);
-		if(save!=null) {
+		if (save != null) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
+
 	@Override
 	public List<Contact> getAllData() {
 		List<Contact> allContact = contactRepository.findAll();
-		
-		if(allContact !=null) {
+
+		if (allContact != null) {
 			return allContact;
-		}
-		else {
-			return null;	
+		} else {
+			return null;
 		}
 	}
+
 	@Override
 	public Contact getById(Integer contactId) {
 		Optional<Contact> findById = contactRepository.findById(contactId);
 		Contact contact = findById.get();
-		if(findById.isPresent()) {
-		return contact;
+		if (findById.isPresent()) {
+			return contact;
+		} else {
+			return null;
 		}
-		else {
-			return null;	
-		}
-		
 	}
+
 	@Override
 	public void deleteAllData() {
 
 		contactRepository.deleteAll();
-		
 	}
+	@Override
+	public boolean updateContact(Contact contact) {
+
+		Contact updateData = contactRepository.save(contact);
+		
+		if(updateData !=null) {
+			return true;
+		}
+		else {
+		return false;
+		}
+	}
+
 }
