@@ -67,7 +67,18 @@ public ResponseEntity<String> deleteAllData(){
 	return new ResponseEntity<String>(msg,HttpStatus.OK);	
 }
 
-
+@PutMapping("/update")
+public ResponseEntity<String> updateRecord(Contact contact){
+	boolean updateContact = contactServiceI.updateContact(contact);
+	if(updateContact == true) {
+		String msg="Record Update Sucessfully";
+		 return new ResponseEntity<String>(msg,HttpStatus.OK);
+	}
+	else {
+		String msg1="Given id not match pl insert correct id ";
+		return new ResponseEntity<String>(msg1, HttpStatus.BAD_GATEWAY);
+	}
+	
 }
-
+}
 
